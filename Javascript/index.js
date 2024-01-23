@@ -49,6 +49,20 @@ submit && submit.addEventListener("click", function(e) {
         cardWrapper.innerHTML += card;
         form.reset();
 
+        let moreButtons = document.querySelectorAll("button.more");
+
+        moreButtons && moreButtons.forEach(item => {
+            item && item.addEventListener("click", function(e) {
+                e.preventDefault();
+                 let id = this.getAttribute("data-id").substring(5);
+                 if (id) {
+                    let domain = window.location.href.substring(0, window.location.href.search('index'));
+                    window.location.assign(`${domain}pages/about.html?id=${id}`)
+                 }
+                 
+            })
+        });
+
 
     };
 });
